@@ -6,7 +6,11 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build:href": "vite build --base ./",
+    "build:github": "npm run delete:docs && npm run build:href && npm run copy:dist",
+    "delete:docs": "if exist docs rmdir /S /Q docs",
+    "copy:dist": "xcopy dist docs /E /I /Y"
   },
   "devDependencies": {
     "vite": "^4.4.5"
